@@ -1,0 +1,71 @@
+﻿@model WEBEAPOS.Models.BranchModel
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Manage", "Branch", new { barcode = Model.BranchId }))
+{
+    <div class="container form-group">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Product</h4>
+                </div>
+                @Html.HiddenFor(m => m.BranchId)
+                <div class="modal-body col-md-12">
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Name)
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.State)
+                        @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.PhoneNumber)
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Street)
+                        @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.City)
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.ZipCode)
+                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Country)
+                        @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Municipio)
+                        @Html.TextBoxFor(m => m.Municipio, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.Label("Habilitar ITBIS")
+                        @Html.CheckBoxFor(m => m.Tax, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .modal-footer {
+        margin-top: 29%;
+    }
+</style>

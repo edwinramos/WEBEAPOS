@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+@model WEBEAPOS.Models.ProductModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">Inventario de Sucursales</div>
+    <div class="panel-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sucursales</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model.BranchsProducts)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Label(item.Branch.Name)
+                            </td>
+                            <td>
+                                @Html.TextBox(item.Quantity
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

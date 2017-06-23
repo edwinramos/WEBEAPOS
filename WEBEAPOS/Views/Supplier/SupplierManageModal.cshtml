@@ -1,0 +1,95 @@
+﻿@model WEBEAPOS.Models.SupplierModel
+@{
+    Layout = null;
+}
+
+@*@{ 
+    var selected = new SelectList(Model.SupplierList, "SupplierId", "Name");
+}*@
+@using (Html.BeginForm("Manage","Supplier", new { barcode = Model.SupplierId})) {
+    <div class="container form-group">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Product</h4>
+                </div>
+                @Html.HiddenFor(m => m.SupplierId)
+                <div class="modal-body col-md-12">
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Name)
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Description)
+                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Address)
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.City)
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.PhoneNumber)
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.WebPage)
+                        @Html.TextBoxFor(m => m.WebPage, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.ContactName)
+                        @Html.TextBoxFor(m => m.ContactName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.ContactPhone)
+                        @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.ContactTitle)
+                        @Html.TextBoxFor(m => m.ContactTitle, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(m => m.SupplierType)
+                        @Html.DropDownListFor(m => m.SupplierType, Model.SypplierTypeList, new { @class = "form-control dropdown" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default" >Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")
+<script type="text/javascript">
+    $(".datePicker").datepicker({
+        format: 'mm-dd-yyyy',
+        showButtonPanel: true,
+        startDate: new Date(),
+        autoclose: true,
+    });
+    $(document).ready(function () {
+        $(".datePicker").datepicker({
+            format: 'mm-dd-yyyy',
+            showButtonPanel: true,
+            startDate: new Date(),
+            autoclose: true,
+        });
+        
+
+    });
+</script>
+<style>
+    .modal-footer {
+        margin-top: 29%;
+    }
+</style>

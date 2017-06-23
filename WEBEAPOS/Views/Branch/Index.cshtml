@@ -1,0 +1,76 @@
+﻿@using GridMvc.Html;
+@model IEnumerable<WEBEAPOS.DataAccess.DataModels.TBL_BRANCHES>
+
+@{
+    ViewBag.Title = "Branches";
+}
+<h2>Index</h2>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div id='gameContainer'>
+    </div>
+</div>
+@Html.ActionLink("New Branch", "", "", null, new { @class = "btn btn-primary new", data_url = Url.Action("BranchManageModal", "Branch", new { id = 0 }), data_toggle = "modal", data_target = "#myModal" })
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add().Titled("")
+        .Encoded(false)
+        .Css("invisible")
+        .Sanitized(false)
+    .SetWidth(30).RenderValueAs(o => @Html.ActionLink("Edit", "", "", null, new { @class = "btn edit", data_url = Url.Action("BranchManageModal", "Branch", new { id = o.BranchId }), data_toggle = "modal", data_target = "#myModal" }));
+    columns.Add(c => c.Name).Titled("Supplier Name");
+    columns.Add(c => c.State);
+    columns.Add(c => c.PhoneNumber);
+    columns.Add(c => c.Email);
+    columns.Add(c => c.Street);
+    columns.Add(c => c.City);
+    columns.Add(c => c.ZipCode);
+    columns.Add(c => c.Country);
+    columns.Add(c => c.Municipio);
+    columns.Add(c => c.TaxId);
+    columns.Add().Titled("")
+         .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(o => @Html.ActionLink(" ", "Delete", "Branch", new { pId = o.BranchId }, new { @class = "btn delete glyphicon glyphicon-remove", title = "Delete" }));
+}).WithPaging(10).Sortable(true).Filterable(true)
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('tr.grid-row').each(function (s, e) {
+            var url = $(this).children('td.invisible').children('a.edit').data('url');
+            $(this).attr('data-url', url);
+        });
+
+        $('tr.grid-row').dblclick(function () {
+            var url = $(this).data('url');
+
+            $.get(url, function (data) {
+                $('#gameContainer').html(data);
+                $('#myModal').modal('show');
+            });
+        });
+
+        $('a.new').click(function () {
+            var url = $(this).data('url');
+            $.get(url, function (data) {
+                $('#gameContainer').html(data);
+            });
+        });
+        $("#myModal").modal('hide').destroy();
+    });
+</script>
+<style>
+    .readonly {
+        background-color: transparent;
+        border: 0;
+        font-size: 1em;
+    }
+
+    .invisible {
+        display: none;
+    }
+
+    .delete {
+        color: red;
+    }
+</style>

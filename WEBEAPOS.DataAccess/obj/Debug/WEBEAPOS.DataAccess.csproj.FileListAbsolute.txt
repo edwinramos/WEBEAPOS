@@ -1,0 +1,14 @@
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\WEBEAPOS.DataAccess.dll.config
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\WEBEAPOS.DataAccess.dll
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\WEBEAPOS.DataAccess.pdb
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\AutoMapper.dll
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\AutoMapper.xml
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\obj\Debug\WEBEAPOS.DataAccess.Migrations.InitialCreate.resources
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\obj\Debug\WEBEAPOS.DataAccess.csproj.GenerateResource.Cache
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\obj\Debug\WEBEAPOS.DataAccess.dll
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\obj\Debug\WEBEAPOS.DataAccess.pdb
+C:\Users\Edwin\documents\visual studio 2017\Projects\WEBEAPOS\WEBEAPOS.DataAccess\obj\Debug\WEBEAPOS.DataAccess.csprojResolveAssemblyReference.cache

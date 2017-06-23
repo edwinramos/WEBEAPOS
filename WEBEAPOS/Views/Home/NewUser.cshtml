@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "NewUser";
+}
+
+@model WEBEAPOS.DataAccess.DataModels.TBL_USERS
+
+@using (Html.BeginForm())
+{
+@Html.LabelFor(o => o.UserName)
+@Html.TextBoxFor(o => o.UserName)
+
+@Html.LabelFor(o => o.Password)
+@Html.TextBoxFor(o => o.Password)
+
+@Html.LabelFor(o => o.Name)
+@Html.TextBoxFor(o => o.Name)
+
+@Html.LabelFor(o => o.LastName)
+@Html.TextBoxFor(o => o.LastName)
+
+    <button type="submit" class="btn btn-default">Submit</button>
+}

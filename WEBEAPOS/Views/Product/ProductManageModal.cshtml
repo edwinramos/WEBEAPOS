@@ -1,0 +1,140 @@
+﻿@model WEBEAPOS.Models.ProductModel
+@{
+    Layout = null;
+}
+
+@{ 
+    var selected = new SelectList(Model.SupplierList, "SupplierId", "Name");
+}
+@using (Html.BeginForm("Manage", "Product", new { barcode = Model.Barcode }))
+{
+    <div class="container form-group">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Product</h4>
+                </div>
+                @Html.HiddenFor(m => m.ProductId)
+                <div class="modal-body col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        Basic Detail
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.Barcode)
+                                @Html.TextBoxFor(m => m.Barcode, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.ProductName)
+                                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.Description)
+                                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.Brand)
+                                @Html.TextBoxFor(m => m.Brand, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.SupplierId)
+                                @Html.DropDownListFor(m => m.SupplierId, selected, new { @class = "form-control dropdown" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.BuyDate)
+                                @Html.TextBoxFor(m => m.BuyDate, new { @class = "form-control datePicker" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.SupplierPrice)
+                                @Html.TextBoxFor(m => m.SupplierPrice, new { @class = "form-control val", id = "SupplierPrice" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.MarginPercentage)
+                                @Html.TextBoxFor(m => m.MarginPercentage, new { @class = "form-control val", id = "MarginPercentage" })
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(m => m.FinalPrice)
+                                @Html.TextBoxFor(m => m.FinalPrice, new { @class = "form-control", id = "FinalPrice" })
+                            </div>
+                        </div>
+                    </div>               
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Inventario de Sucursales</div>
+                        <div class="panel-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sucursales</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        for (int i = 0; i< Model.BranchsProducts.Count;i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.HiddenFor(o=>o.BranchsProducts[i].ProductId)
+                                                    @Html.HiddenFor(o => o.BranchsProducts[i].BranchId)
+                                                    @Html.Label(Model.BranchsProducts[i].Branch.Name)
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(o => o.BranchsProducts[i].Quantity, new { @class="form-control"})
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+ 
+
+                    
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default" >Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".datePicker").datepicker({
+            format: 'mm-dd-yyyy',
+            showButtonPanel: true,
+            startDate: new Date(),
+            autoclose: true,
+        });
+        $(".val").each(function () {
+
+            $(this).keyup(function () {
+                calculateSum();
+            });
+        });
+
+    function calculateSum() {
+        var supPrice = Number($('#SupplierPrice').val());
+        var marginP = Number($('#MarginPercentage').val());
+        
+
+        var res = supPrice + (supPrice * (marginP/100))
+
+        $("#FinalPrice").val(res);
+    }
+
+    });
+</script>
+<style>
+    .modal-footer {
+        margin-top: 29%;
+    }
+</style>
